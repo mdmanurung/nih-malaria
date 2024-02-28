@@ -30,7 +30,7 @@ step_DA_milo_age <- function(srt){
   cite_milo <- countCells(cite_milo,
                           meta.data = data.frame(colData(cite_milo)),
                           samples="demux_id")
-  cite_milo <- buildNhoodGraph(cite_milo)
+cite_milo <- buildNhoodGraph(cite_milo)
 
 
   message("Running miloR...")
@@ -61,7 +61,7 @@ step_DA_milo_age <- function(srt){
       robust = TRUE)
   d_res <- annotateNhoods(cite_milo, d_res, coldata_col = "singler_monaco_fine")
 
-
+  
   # one vs rest
   mod <- model.matrix(~ 0 + age_group + capture_id, data=design.mat)
   mod.contrast <- makeContrasts(
